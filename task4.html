@@ -20,14 +20,21 @@
       const rootElement = document.querySelector("#root");
 
       function ListItem(props) {
-        // code here
+        return (
+          <li>
+            {props.text} -- {props.quantity}
+          </li>
+        );
       }
 
       ReactDOM.render(
         [
-          <ListItem text="Milk" />,
-          <ListItem text="Eggs" />,
-          <ListItem text="Flour" />,
+          <ListItem text="Milk" quantity="1" />,
+          <ListItem text="Eggs" quantity="12" />,
+          <ListItem text="Flour" quantity="1" />,
+          <ListItem text="Chocolate" quantity="1" />,
+          <ListItem text="Grapes" quantity="21" />,
+          <ListItem text="Apples" quantity="12" />,
         ],
         rootElement
       );

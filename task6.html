@@ -19,11 +19,16 @@
     <script type="text/babel">
       const rootElement = document.querySelector("#root");
 
-      function CheckBox(props) {
+      function CheckBox({ checked }) {
+        console.log(checked);
         // render a checkbox that is controlled by the checked prop
+        if (checked === true || checked === undefined) {
+          return <input type="checkbox" checked={checked}></input>;
+        } else {
+          return <h1>I like apples.</h1>;
+        }
       }
-
-      ReactDOM.render(<CheckBox checked={true} />, rootElement);
+      ReactDOM.render(<CheckBox />, rootElement);
     </script>
   </body>
 </html>

@@ -12,20 +12,52 @@
       src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
       crossorigin
     ></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <!-- import babel -->
   </head>
   <body>
     <div id="root"></div>
     <!-- add the required type attribute -->
-    <script>
+    <div id="button"></div>
+    <div id="helloWorld"></div>
+    <script type="text/babel">
       const rootElement = document.querySelector("#root");
 
       function Title() {
         // convert this to jsx
-        return React.createElement("h1", null, "JSX Rules!");
+        return <h1>I love Valerio!</h1>;
+        //return React.createElement("h1", null, "JSX Rules!");
       }
 
-      ReactDOM.render(Title(), rootElement);
+      const rootElementTwo = document.querySelector("#button");
+
+      function handleClick(e) {
+        alert("You clicked me!");
+      }
+
+      function Button() {
+        return (
+          <button className="button" onClick={handleClick}>
+            Click me!
+          </button>
+        );
+      }
+      const rootElementThree = document.querySelector("#helloWorld");
+      // const element = document.createElement("div");
+      // element.innerText = "Hello World";
+      // element.className = "container";
+      function HelloWorld() {
+        return <h2 className="helloWorld"> Hello World</h2>;
+      }
+      //const element = React.createElement(
+
+      // rootElement.appendChild(element);
+      ReactDOM.render(<HelloWorld />, rootElementThree);
+
+      ReactDOM.render(<Button />, rootElementTwo);
+
+      ReactDOM.render(<Title />, rootElement);
     </script>
   </body>
 </html>
